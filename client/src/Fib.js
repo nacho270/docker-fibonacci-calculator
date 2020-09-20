@@ -42,10 +42,16 @@ class Fib extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post("/api/values", {
-      index: this.state.index,
-    });
-    this.setState({ index: "" });
+    await axios
+      .post("/api/values", {
+        index: this.state.index,
+      })
+      .then((resp) => {
+        alert("Atr amiwo, refresca pagina para ver el resultado");
+      })
+      .catch((error) => {
+        alert(error.response.data);
+      });
   };
 
   render() {

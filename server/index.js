@@ -53,7 +53,7 @@ app.get("/values/current", async (req, resp) => {
 app.post("/values", async (req, resp) => {
   const index = req.body.index;
   if (parseInt(index) > 40) {
-    return resp.status(422).send("No te zarpes wacho, 40 es mucho");
+    return resp.status(422).send("No te zarpes wacho, hasta 40 te banco amiwo");
   }
 
   redisClient.hset("values", index, "Calculating...");
