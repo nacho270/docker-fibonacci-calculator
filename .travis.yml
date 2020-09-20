@@ -24,14 +24,15 @@ after_success:
   - docker push nacho270/docker-fibonacci-calculator-server
   - docker push nacho270/docker-fibonacci-calculator-worker
 
-  # deploy:
-#   provider: elasticbeanstalk
-#   region: "eu-west-2"
-#   app: "docker-react-course"
-#   env: "DockerReactCourse-env"
-#   bucket_name: "elasticbeanstalk-eu-west-2-063131236371"
-#   bucket_path: "docker-react-course"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_access_key: $AWS_SECRET_KEY
+deploy:
+  # edge: true - for  missing bucket_name error
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "docker-fibonacci-calculator"
+  env: "DockerFibonacciCalculator-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-063131236371"
+  bucket_path: "docker-fibonacci-calculator"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
